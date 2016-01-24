@@ -176,25 +176,25 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TodosCtrl', function($scope, $stateParams, $timeout, ionicMaterialMotion, ionicMaterialInk) {
-    $scope.$parent.showHeader();
-    $scope.$parent.clearFabs();
-    $scope.isExpanded = true;
-    $scope.$parent.setExpanded(true);
-    $scope.$parent.setHeaderFab('right');
-
 
     // TODO
 
-    /*
-    $timeout(function() {
-        ionicMaterialMotion.fadeSlideIn({
-            selector: '.animate-fade-slide-in .item'
-        });
-    }, 200);
+    // Set Header
+    $scope.$parent.showHeader();
+    $scope.$parent.clearFabs();
 
-    // Activate ink for controller
+    // Delay expansion
+    $timeout(function() {
+        $scope.isExpanded = true;
+        $scope.$parent.setExpanded(true);
+    }, 300);
+
+    // Set Motion
+    ionicMaterialMotion.fadeSlideInRight();
+
+    // Set Ink
     ionicMaterialInk.displayEffect();
-    */
+
 })
 
 ;
